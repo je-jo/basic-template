@@ -1,6 +1,6 @@
 # README - Basic Template
 
-A basic folder structure for simple front-end projects.
+A basic folder structure for simple front-end projects, with minimal styling provided.
 
 ## Table of contents
 
@@ -18,7 +18,7 @@ A basic folder structure for simple front-end projects.
 
 ### Description
 
-This is a a basic folder structure for simple front-end projects. Includes minimal styling.
+This is a a basic folder structure for simple front-end projects. Includes minimal styling, mostly taken from [Stephanie Eckless](https://moderncss.dev/).
 
 ### Screenshot
 
@@ -46,8 +46,9 @@ This template should make building simple pages quicker.
 
 ### Useful resources
 
-- [Colors from Paraiso theme](https://github.com/idleberg/Paraiso-Color-Palettes)
-- [HTML / Sass Jumpstart](https://github.com/5t3ph/html-sass-jumpstart) - Inspired by Stephanie Eckless' HTML / Sass Jumpstart, but much simpler.
+- [HTML / Sass Jumpstart](https://github.com/5t3ph/html-sass-jumpstart) - Inspired by Stephanie Eckless' HTML / Sass Jumpstart, but much simpler;
+- [Solutions to Replace the 12-Column Grid](https://moderncss.dev/solutions-to-replace-the-12-column-grid/);
+- [Colors from Paraiso theme](https://github.com/idleberg/Paraiso-Color-Palettes);
 
 ## Author
 

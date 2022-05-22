@@ -9,11 +9,11 @@
 * {
     margin: 0;
     padding: 0;
-    /* outline: 1px solid salmon; */
+    outline: 1px solid salmon;
 }
 
 :focus {
-    outline: 2px solid var(--clr-primary);
+    outline: 2px solid var(--clr-primary-strong);
     outline-offset: 2px;
     transition: var(--transition);
 }
@@ -34,11 +34,31 @@ body {
     color: var(--clr-dark);
 }
 
+header {
+    width: 100%;
+    padding: 1em;
+    place-self: center;
+    text-align: center;
+    border-bottom: 1px solid currentColor;
+}
+
+main {
+    width: min(100%, 90ch);
+    margin: 0 auto;
+    padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
+}
+
+main > * {
+    margin-top: 1em;
+}
+
 footer {
     width: 100%;
     margin-top: auto;
+    padding: 0.5em;
     place-self: center;
     text-align: center;
+    border-top: 1px solid currentColor;
 }
 
 img {
@@ -86,7 +106,8 @@ select {
 :root {
     --clr-dark: #222;
     --clr-white: #f9f9f9;
-    --clr-accent: #EF6155;
+    --clr-primary: #EF6155;
+    --clr-primary-strong: #f13422;
     --fs-h1: 4.2rem;
     --fs-h2: 3.15rem;
     --fs-h3: 2rem;
@@ -99,11 +120,12 @@ select {
     --spacing-l: 6rem;
     --spacing-xl: 10rem;
     --transition: ease .3s;
+    --box-shadow: 0 3px 5px rgba(0, 0, 0, 0.28);
+    --min-col-width: 15rem;
 }
 
 /*typography */
 
-h1,
 h2,
 h3,
 h4 {
@@ -114,6 +136,7 @@ h4 {
 
 h1 {
     font-size: var(--fs-h1);
+    text-align: center;
 }
 
 h2 {
@@ -128,7 +151,8 @@ h4 {
     font-size: var(--fs-h4);
 }
 
-p, li {
+p,
+li {
     font-size: var(--fs-text);
 }
 
@@ -137,27 +161,29 @@ main p {
     max-width: 80ch;
 }
 
-* + h2 {
+*+h2 {
     margin-top: 4rem;
 }
 
-* + h3 {
+*+h3 {
     margin-top: 2rem;
 }
 
-a:not(button) {
-    color: var(--clr-accent);
+a:not(.btn) {
+    color: var(--clr-primary);
     text-decoration: none;
+    transition: var(--transition);
 }
 
-a:not(button):hover {
+a:not(.btn):hover {
+    color: var(--clr-primary-strong);
     text-decoration: underline;
     text-underline-offset: 0.2rem;
 }
 
 /*buttons*/
 
-button {
+.btn {
     display: inline-flex;
     align-items: center;
     align-self: start;
@@ -167,12 +193,59 @@ button {
     padding: 0.25em 1em;
     transition: var(transition);
     border: 2px solid currentColor;
-    border-radius: var(--border-radius)/2;
-    background-color: var(--clr-accent);
+    border-radius: var(--border-radius);
+    background-color: var(--clr-primary);
     color: var(--clr-white);
     font-size: 1.125rem;
     line-height: 1.1;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+}
+
+.btn--alt {
+    background-color: var(--clr-white);
+    color: var(--clr-primary);
+}
+
+.btn:hover {
+    background-color: var(--clr-primary-strong)
+}
+
+.btn--alt:hover {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+/*utilities*/
+
+.container--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min-col-width)), 1fr));
+    padding: 1em;
+    gap: 1em;
+}
+
+.container--flex {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 1em;
+}
+
+.container--flex > * {
+    flex: 1 1 var(--min-col-width);
+}
+
+/*card*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2em;
+    gap: 2em;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
 }
