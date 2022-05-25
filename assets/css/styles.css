@@ -1,4 +1,4 @@
-/*reset and basic layout*/
+/*reset*/
 
 *,
 *::before,
@@ -21,6 +21,59 @@
 html {
     scroll-behavior: smooth;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: initial;
+    }
+}
+
+/*theme*/
+
+:root {
+    --clr-dark: #222;
+    --clr-white: #f9f9f9;
+    --clr-primary: #EF6155;
+    --clr-primary-strong: #f13422;
+    --fs-h1: 4.2rem;
+    --fs-h2: 3.15rem;
+    --fs-h3: 2rem;
+    --fs-h4: 1.35rem;
+    --fs-text: 1.15rem;
+    --fs-lead: 1.35rem;
+    --border-radius: 8px;
+    --spacing-s: 1rem;
+    --spacing-m: 3rem;
+    --spacing-l: 6rem;
+    --spacing-xl: 10rem;
+    --transition: ease background-color .2s;
+    --box-shadow: 0 3px 5px rgba(0, 0, 0, 0.28);
+    --min-col-width: 15rem;
+}
+
+/*layout*/
 
 body {
     display: flex;
@@ -61,17 +114,7 @@ footer {
     border-top: 1px solid currentColor;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
+/*utilities*/
 
 .sr-only {
     position: absolute;
@@ -85,44 +128,25 @@ select {
     border: 0;
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    html {
-        scroll-behavior: initial;
-    }
+.container--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min-col-width)), 1fr));
+    padding: 1em;
+    gap: 1em;
 }
 
-/*theme*/
-
-:root {
-    --clr-dark: #222;
-    --clr-white: #f9f9f9;
-    --clr-primary: #EF6155;
-    --clr-primary-strong: #f13422;
-    --fs-h1: 4.2rem;
-    --fs-h2: 3.15rem;
-    --fs-h3: 2rem;
-    --fs-h4: 1.35rem;
-    --fs-text: 1.15rem;
-    --fs-lead: 1.35rem;
-    --border-radius: 8px;
-    --spacing-s: 1rem;
-    --spacing-m: 3rem;
-    --spacing-l: 6rem;
-    --spacing-xl: 10rem;
-    --transition: ease .3s;
-    --box-shadow: 0 3px 5px rgba(0, 0, 0, 0.28);
-    --min-col-width: 15rem;
+.container--flex {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 1em;
 }
+
+.container--flex > * {
+    flex: 1 1 var(--min-col-width);
+}
+
+
 
 /*typography */
 
@@ -136,11 +160,13 @@ h4 {
 
 h1 {
     font-size: var(--fs-h1);
+    font-size: min(max(3rem, 5vw), var(--fs-h1));
     text-align: center;
 }
 
 h2 {
     font-size: var(--fs-h2);
+    font-size: min(max(2.5rem, 4.5vw), var(--fs-h2));
 }
 
 h3 {
@@ -215,26 +241,6 @@ a:not(.btn):hover {
 .btn--alt:hover {
     background-color: var(--clr-primary);
     color: var(--clr-white);
-}
-
-/*utilities*/
-
-.container--grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min-col-width)), 1fr));
-    padding: 1em;
-    gap: 1em;
-}
-
-.container--flex {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1em;
-    gap: 1em;
-}
-
-.container--flex > * {
-    flex: 1 1 var(--min-col-width);
 }
 
 /*card*/

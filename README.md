@@ -18,7 +18,7 @@ A basic folder structure for simple front-end projects, with minimal styling pro
 
 ### Description
 
-This is a a basic folder structure for simple front-end projects. Includes minimal styling, mostly taken from [Stephanie Eckless](https://moderncss.dev/).
+This is a a basic folder structure for simple front-end projects. Includes minimal styling for most used elements. Custom properties and general idea mostly taken from [Stephanie Eckless](https://moderncss.dev/).
 
 ### Screenshot
 
@@ -41,7 +41,7 @@ This is a a basic folder structure for simple front-end projects. Includes minim
 
 ### Observations
 
-This template should make building simple pages quicker.
+This template should make building simple responsive pages quicker.
 
 
 ### Useful resources
